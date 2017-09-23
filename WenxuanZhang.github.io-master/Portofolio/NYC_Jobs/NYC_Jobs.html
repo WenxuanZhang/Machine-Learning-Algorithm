@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wenxuan Zhang</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Visualization Class at Harvard University">
+  <link rel="canonical" href="http://wenxuanzhang.github.io/">
+  <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/2015 favicon.png">
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+</head>
+    <body>
+    <header class="site-header">
+     <div class="wrap">
+    <div class="logo"n><a class="site-title" href="/"><img src="/img/log2.svg" width="80"></a>
+    <div class="logoword">
+   <p class="site-words">unlocking the power of data<p>
+   </div>
+ </div>
+  
+  </div>
+    <div class="wrap">
+    <nav class="site-nav">
+     <div class="trigger">
+      <div class="wrap">
+       <a class="page-link" href="/2015/"></a>
+        <a class="page-link" href="/2015/feed.xml"></a>
+        <a class="page-link" href="/About">About</a>
+        <a class="page-link" href="/Skills">Skills</a>
+        <a class="page-link" href="/Blogs">Blogs</a>
+        <a class="page-link" href="/Portofolio">Portofolio</a>
+        <a class="page-link" href="/Resources">Resources</a>
+        <a class="page-link" href="/Contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</div>
+</header>
+<div class="page-content">
+<div class="wrap">
+<div class="post">
+<div class="wrap">
+<header class="post-header">
+ <h2>An overview New York’s Official Site Jobs</h2>
+</header>
+</div>
+<article class="post-content">
+
+<div class="wrap">
+<h3>Data</h3>
+<a href="https://data.cityofnewyork.us/Business/NYC-Jobs/kpav-sd4t">The Data Set</a> includes all current job posting available on the City of New York's Offical jobs site. This dataset contains 2676 rows with following attributes:
+
+ <p>Job ID</p>
+ <p>Agency</p>
+ <p>Posting Type</p>
+  <p># Of Positions</p>
+  <p>Business Title</p>
+  <p>Civil Service Title</p>
+  <p>Title Code No</p>
+  <p>Level</p>
+  <p>Salary Range From</p>
+  <p>Salary Range To</p>
+  <p>Salary Frequency</p>
+  <p>Work Location</p>
+  <p>Division/Work Unit</p>
+  <p>Job Description</p>
+  <p>Minimum Qual Requirements</p>
+  <p>Preferred Skills</p>
+  <p>Additional Information</p>
+  <p>To Apply</p>
+  <p>Hours/Shift</p>
+  <p>Work Location 1</p>
+  <p>Recruitment Contact</p>
+  <p>Residency Requirement</p>
+  <p>Posting Date</p>
+  <p>Post Until</p>
+  <p>Posting Updated</p>
+  <p>Process Date</p>
+
+<h3>The Deparment with Most Openning</h3>
+<div>
+    <a href="https://plot.ly/~WenxuanZhang/48/" target="_blank" title="#of Position by Agency" style="display: block; text-align: center;"><img src="https://plot.ly/~WenxuanZhang/48.png" alt="#of Position by Agency" style="max-width: 100%;"  onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="WenxuanZhang:48" src="https://plot.ly/embed.js" async></script>
+</div>
+<p></p>
+<p>Health and Mental Hygine, unexpectly has 1360 openings, rank the first.The following department construction realted department, such as 
+Department of Park and Recreation(648),Department of Buildings(610),Department of Design and Construction(501),Department of Enviorment Protection(463)
+and NYC House Authority(432). </p>
+<h3>The Deparment with highest and lowest Paying Position</h3>
+<div>
+    <a href="https://plot.ly/~WenxuanZhang/61/" target="_blank" title="Salary Lower Bound by Department" style="display: block; text-align: center;"><img src="https://plot.ly/~WenxuanZhang/61.png" alt="Salary Lower Bound by Department" style="max-width: 100%;width: 787px;"  width="787" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="WenxuanZhang:61" src="https://plot.ly/embed.js" async></script>
+</div>
+<p></p>
+
+<p>This dataset give a range of salary instead of exact salary. Thus we analyze the department with the lowest salary with the Salaray Range From data.
+In order for comparing, we might convert the daily salary and hourly salary into annualy salary by the following method:</p>
+
+<p>Annual = Daily* 251</p>
+
+<p>Annual = Hourly * 2008</p>
+
+<p>This caculation is based on <a href="http://www.calendar-12.com/working_days/2015">Working day</a></p>
+
+<p>From the graph we can see the Office of Collective Bargain, Admin Trials AND Hearings, Department OF Probation provide  salary with median 24k,40k,32k respectively, which is very low among departments. The least ananual salary is 16064$/year.
+20 position in Teachers Retirement System, 32 in Department of Finance, 14 in Department for the Aging, 6 in Department of Homeless Service and 2 in Department of Health/Mental Hygine has this minimal start salary.</p>
+
+
+<div>
+    <a href="https://plot.ly/~WenxuanZhang/141/" target="_blank" title="Salary Upper Bound by Department" style="display: block; text-align: center;"><img src="https://plot.ly/~WenxuanZhang/141.png" alt="Salary Upper Bound by Department" style="max-width: 100%;"  onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="WenxuanZhang:141" src="https://plot.ly/embed.js" async></script>
+</div>
+<p></p>
+<p>From the Salary Upper bound we could see Department of Sanitation,Financial Info Svs Agency,Conflict OF Interest Borad offers salary with median 131.59k,110.55k,112.84k respectively, which are most generous among department.
+The highest Salary is 203566$/year and there are 2 positions in Deparment of Evironment  Protection  and 2 in NYC Housing Authority.</p>
+
+<h3>The Jobs Hardest to fill</h3>
+<div>
+    <a href="https://plot.ly/~WenxuanZhang/77/" target="_blank" title="Number of Post days" style="display: block; text-align: center;"><img src="https://plot.ly/~WenxuanZhang/77.png" alt="Number of Post days" style="max-width: 100%;"  onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="WenxuanZhang:77" src="https://plot.ly/embed.js" async></script>
+</div>
+<p></p>
+<p>The first question came to us is how to measure hardness to fill. The date it has been posted might be a good indicator.
+Using the word might, we mean it could be possible they have found person to fill this position but they did not
+remove the most, which is totally possible.The 25% quantile of posted days is 24 and 75% is 129, which is quite reasonable. If
+the office remove the job post once this position is filled, we could say that the hardest to fill job is <strong>Account Manager (Job ID 87990)</strong>,
+which is spectable.</p>
+
+<div>
+    <a href="https://plot.ly/~WenxuanZhang/159/" target="_blank" title="Mean of Posted Days by Department" style="display: block; text-align: center;"><img src="https://plot.ly/~WenxuanZhang/159.png" alt="Mean of Posted Days by Department" style="max-width: 100%;"  onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="WenxuanZhang:159" src="https://plot.ly/embed.js" async></script>
+</div>
+<p></p>
+<div>
+    <a href="https://plot.ly/~WenxuanZhang/82/" target="_blank" title="$ vs Year of Experience" style="display: block; text-align: center;"><img src="https://plot.ly/~WenxuanZhang/82.png" alt="$ vs Year of Experience" style="max-width: 100%;width: 787px;"  width="787" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="WenxuanZhang:82" src="https://plot.ly/embed.js" async></script>
+</div>
+<p></p>
+<p> Generally speaking, the position with lower salary and higher demanding is hard to fill. Demanding might be experience, skill set, degree, residency.etc. Using reggular expression, we extracted the number of experience each jobs needs. This graph there is an positive linear relation between experience and salary. Those position under the regressin line might be the hardest to fill. From this perspective the hardest to fill job is <Strong>Excutive Director, Business Development(JobID:97899)</Strong></p>
+<h3>Discussion</h3>
+There is still too much information to mine from this dataset. We might extract the number of skills each job needs and the realtive scarcity of
+each job. Addition requirement, degree, and residency might taken into consideration too. We might build certian index that mesaure the hardness.
+Building  probit model that quantify the possibility of finding certain candidate during one period  might be helpful. While due to time limit,we stop at here.
+
+<h3>Code</h3>
+Here are the <a href="https://github.com/WenxuanZhang/WenxuanZhang.github.io/blob/master/Portofolio/NYC_Jobs/NYC_Jobs.py">code</a> for this analysis and <a href="https://github.com/WenxuanZhang/WenxuanZhang.github.io/blob/master/Portofolio/NYC_Jobs/character_frequency.py">related code</a>
+</div>
+</article>
+</div>
+</div>
+
+
+
+
+<div class="previous">
+  <p><a href="/Portofolio/character_frequency/CF_Resume.html">Previous</a></p>
+</div>
+<div class="next">
+  <p><a href="">Next</a></p>
+</div>
+</div>
+
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-col-1 column" F> 
+    <p>© Wenxuan Zhang, 2015<p>
+    </div>
+    <div class="wrap">
+  <p><a href="https://www.linkedin.com/in/wenxuanzhang5"><img src="/img/linkedin.png" width="20" height="20"></a></p>
+  <p><a href="https://www.facebook.com/wenxuan.zhang.92"><img src="/img/facebook.png" width="20" height="20"></a></p>
+  <p><a href="https://github.com/WenxuanZhang"><img src="/img/github.png" width="20" height="20"></a></p>
+  <p><a href="https://twitter.com/ZhangWenxuan1"><img src="/img/twitter.jpeg" width="20" height="20"></a></p>
+  <p><a href="http://wenxuandatascientist.blogspot.com"><img src="/img/blog.png" width="20" height="20"></a></p>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52275398-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+</body>
+
+
+
+</html>

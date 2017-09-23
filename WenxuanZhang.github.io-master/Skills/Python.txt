@@ -1,0 +1,40 @@
+Python:
+	Scrapy:Extracted various of strange data you need
+	BeautifulSoup: Get any elments you need from a webpage
+	Matplotlib: Draw all kinds of graph
+	Numpy,Scipy,Pandas,caret: Computing
+	Scikit-learn: Machine Learning Stuff
+	Flask:Sometimes I write web app
+	Mrjob:Distributed Computing with AWS
+R:
+	ggplot2:Explorotary data analysis
+	Car,randomForest,glmnet: Data Mining stuff
+    RMarkdown:Best tool for report
+    ggmap: Visulize GIS data
+    Shiny: Interactive data visualization
+
+Javascript
+	d3: I used it to do data visualization
+
+Html,CSS:
+    Build my own website
+    Design d3 visualization 
+
+Tableau:
+	Visualize large amout data quickly
+
+AWS:
+	Upload data in s3 database
+	Launched EC2 cluster
+
+Hadoop:
+	Performed Classfication,Clustering,recommendation
+	task with mahout library
+C:
+	Build a database server, web server in C
+
+Java:
+	Use java mahout package to do machine learning task
+
+
+

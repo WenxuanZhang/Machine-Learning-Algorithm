@@ -1,0 +1,70 @@
+
+.blogimg img{
+  position:relative;
+  float:right;
+  height:10%;
+  width:auto;
+}
+
+
+.blogimg {
+  top:200px;
+  left:60px;
+  float:left;
+  position: relative;
+  padding: 20;
+  max-width: 400px;
+  margin: 30;
+  zoom: 1; 
+  background-color:red;}
+
+
+.headback {
+  max-width:800px;
+  height: 100px;
+  padding: 0 30px;
+  margin: 0 auto;
+  zoom: 1;
+  background-image:url("/Users/leilei/GitHub/WenxuanZhang.github.io/img/log3.svg");}
+ 
+.headback img{
+  max-height:100%;
+  max-width: 100%;
+}
+
+
+.wrap:before,
+.wrap:after {
+  content: "";
+  display: table; }
+
+.wrap:after {
+  clear: both; }
+.wrap {
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 0 auto;
+  zoom: 1;
+  background-color:lightblue;
+  }
+.wrap img{
+  max-height:100%;
+  max-width: 100%;
+  }
+
+.next{
+  width:100px;
+  right:300px;
+  position:absolute;
+  background-color: pink;
+
+}
+
+.previous{
+  width:100px;
+  left:300px;
+  position:absolute;
+  background-color: pink;
+}
+
+

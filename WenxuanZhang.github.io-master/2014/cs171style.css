@@ -1,0 +1,49 @@
+
+
+th
+{
+background-color:#CCCCCC;
+text-align:center;
+font-size:12pt;
+font-weight:bold;
+}
+
+.cs
+{
+color: #AD3D34;
+text-decoration: none;
+font-weight:900;
+vertical-align:text-top;
+}
+
+a:link
+{
+  color: #AD3D34;
+}
+
+a:focus a:focus {
+  color: #d36a61;
+}
+a:active {color:#d36a61;}
+a:visited {color:#d36a61;}
+
+.number
+{
+font-size:1.3em;
+text-decoration: none;
+vertical-align:text-bottom;
+}
+
+.credits
+{
+text-decoration: none;
+vertical-align:text-top;
+font-size:0.7em;
+text-align:right;
+}
+
+.rest
+{
+text-decoration: none;
+vertical-align:text-top;
+}

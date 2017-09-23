@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wenxuan Zhang</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Visualization Class at Harvard University">
+  <link rel="canonical" href="http://wenxuanzhang.github.io/">
+  <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/2015 favicon.png">
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+</head>
+    <body>
+    <header class="site-header">
+     <div class="wrap">
+    <div class="logo"n><a class="site-title" href="/"><img src="/img/log2.svg" width="80"></a>
+    <div class="logoword">
+   <p class="site-words">unlocking the power of data<p>
+   </div>
+ </div>
+  
+  </div>
+    <div class="wrap">
+    <nav class="site-nav">
+     <div class="trigger">
+      <div class="wrap">
+       <a class="page-link" href="/2015/"></a>
+        <a class="page-link" href="/2015/feed.xml"></a>
+        <a class="page-link" href="/About">About</a>
+        <a class="page-link" href="/Skills">Skills</a>
+        <a class="page-link" href="/Blogs">Blogs</a>
+        <a class="page-link" href="/Portofolio">Portofolio</a>
+        <a class="page-link" href="/Resources">Resources</a>
+        <a class="page-link" href="/Contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</div>
+</header>
+<div class="page-content">
+<div class="wrap">
+<div class="post">
+<div class="wrap">
+<header class="post-header">
+ <h2 >A Simple Example of Decision Tree</h1>
+</header>
+</div>
+<article class="post-content">
+
+<div class="wrap">
+<div class="articleimg">
+<img src="/img/WordleCollage.jpg" width=100%>
+</div>
+
+</div>
+<div class="wrap">
+<p>
+Andy is planning to apply graduate School. A university, say UIUC requires all applicant to submit GPA, Personal Statement, GRE score and recommendation letter. Here are Andy's scores:
+</p>
+<div class="wrap">
+<table width="300">
+<thead>
+<tr>
+<th> GPA </th>
+<th align="center"> GRE </th>
+<th align="center"> PS </th>
+<th> RL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 3.5  </td>
+<td align="center"> Good </td>
+<td align="center"> Good </td>
+<td align="center"> Good</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>You are Andy's consultant and you collected a bunch of previous admission data from the internet. Give the data you have, will Andy be admitted?</p>
+
+<h3>Algorithm</h3>
+
+<p><strong><em>Sudo-Code</em></strong></p>
+
+<p>BuildTree(DataSet,Output):</p>
+
+<ul>
+<li>If all output value are the same in dataset, return a leaf node that predict this unique value</li>
+<li>If all input are the same, return a leaf node that predict the majority output</li>
+<li>Else find attribute X with highest Information Gain.</li>
+<li><p>Suppose X has nx distinct values</p>
+
+<ul>
+<li>Create and return a non-leaf node with nx children</li>
+<li>The ith child should be built by calling BuildTree($DS_i$,Output)
+When $DS_i$ contains all the records that belong to exactly the same class.</li>
+</ul>
+</li>
+</ul>
+
+
+<p><strong><em>Dealing with overfitting</em></strong></p>
+
+<p>Calculate the posibility of there is a realtion between admission and say, GPA, if P{gpa} &lt; $P_{criterion}$, prune that branch.</p>
+
+<p>$P_{criterion}$ Could be set by cross vaildation.</p>
+
+<h3>Code</h3>
+
+<p><a href="https://github.com/WenxuanZhang/WenxuanZhang.github.io/tree/master/code">Decision Tree</a><p>
+
+ <p>1.Genereate fake data on admission and convert GPA into categlorical data (3.67-4:A, 2.67-3.66:B, 0&lt;2.67:C)</p>
+<p>2.Train the decision model by the fake data.</p>
+<p>3.Predict wether xiaoming will be admitted by previous model.</p>
+<p>Acoording to the result, xiaoming had a great chance.</p>
+
+<h3>Concept</h3>
+
+<ol>
+<li><p><strong><em>Entropy</em></strong>: a measure of purity</p>
+
+<p> $Entropy = -\sum{p_i*log_2p_i}$</p>
+
+<p>Dataset with higher entropy are considered to be good training dataset.</p></li>
+<li><p><strong><em>Information Gain</em></strong>: Entropy(parent)- average[Entropy(child)]</p>
+
+<p>Attribute with higher information gain should be considered first when constructing decision tree.</p></li>
+</ol>
+
+<div class="wrap">
+<table width="300">
+<thead>
+<tr>
+<th> Tables </th>
+<th align="center"> High           </th>
+<th align="right"> Low  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"> A    </td>
+<td align="center"> 20 </td>
+<td align="right"> 10 </td>
+</tr>
+<tr>
+<td align="center"> B     </td>
+<td align="center"> 30     </td>
+<td align="right">   5 </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>The table shows number of high weight and low weight chicken in situation A and B.</p>
+
+<pre><code>Entorpy(weight)=-(50/65)log(50/65)-(15/65)log(15/65)=0.7793498
+Entropy(weight|A)=-(10/30)log(10/30)-(20/30)log(20/30)=0.9182958
+Entropy(weight|B)=-(5/35)log(5/35)-(30/35)log(30/35)= 0.5435644
+IG(Group)=0.7793498-(0.9182958*30/65 +0.5435644*35/65)=0.06283245
+</code></pre>
+
+<h4>Reference:</h4>
+
+<ol>
+<li><p><a href="https://courses.cs.washington.edu/courses/cse455/10au/notes/InfoGain.pdf">Information Gain:CS Course of Washington University</a></p></li>
+<li><p><a href="http://www.autonlab.org/tutorials/dtree18.pdf">Decision Tree by Andrew Moore</a></p></li>
+</ol>
+
+</div>
+  </article>
+</div>
+</div>
+<div class="next">
+  <p><a href="/Blogs/Tableau_R1.html">Next</a></p>
+</div>
+</div>
+
+
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-col-1 column" F> 
+    <p>© Wenxuan Zhang, 2015</p>
+    </div>
+    <div class="wrap">
+  <p><a href="https://www.linkedin.com/in/wenxuanzhang5"><img src="/img/linkedin.png" width="20" height="20"></a></p>
+  <p><a href="https://www.facebook.com/wenxuan.zhang.92"><img src="/img/facebook.png" width="20" height="20"></a></p>
+  <p><a href="https://github.com/WenxuanZhang"><img src="/img/github.png" width="20" height="20"></a></p>
+  <p><a href="https://twitter.com/ZhangWenxuan1"><img src="/img/twitter.jpeg" width="20" height="20"></a></p>
+  <p><a href="http://wenxuandatascientist.blogspot.com"><img src="/img/blog.png" width="20" height="20"></a></p>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52275398-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+</body>
+
+
+
+</html>

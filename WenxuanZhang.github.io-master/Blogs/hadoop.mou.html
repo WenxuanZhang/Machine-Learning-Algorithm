@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Hadoop: what it is?</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h2>Hadoop: what it is?</h2>
+
+<h3>What is hadoop</h3>
+
+<p>Apache Hadoop is an open source distributed data stroage and processing framework that inspired by the idead of Mapreduce and Google's file system. It is composed of 4 modules：</p>
+
+<ul>
+<li>HDFS (Hadoop Distributed File System)</li>
+<li>MapReduce(a programming model for large scale data processing)</li>
+<li>YARN(a resource management that responsible for managing computing resources among clusters)</li>
+<li>Software on hadoop platform (pig, hive, spark)</li>
+</ul>
+
+
+<p> Hadoop is widely used among fortune 500 companies, its user include, Yahoo and facebook,Netflix and Amazon. According to <a href="http://www.computerworlduk.com/news/data/idc-hadoop-commonly-used-with-other-big-data-analytics-systems-3476789/">IDC' report</a>,32% percent of companies deployed Hadoop and a addition of 31 percent said they  had plans to deploy hadoop with 12 months. If you want to who are hadoop users and what they use hadoop to do please read <a href="http://wiki.apache.org/hadoop/PoweredBy">hadoop-wiki</a>.</p>
+
+<p>Besides its original version apache hadoop, there are a number of companies tweaked and enhanced the functionalities of hadoop and developed their own version of hadoop on it. Three company that really stand out is Cloudera, MapR and Hortonworks.</p>
+
+<h4>HDFS</h4>
+
+<p>(hdfsarchitecture.gif)
+HDFS (Hadoop distributed file system) breaks large data file into blocks and store these data files across multiple computers. Generally speaking, a hadoop cluster usually have one master node and multiple slave node. The master node consists of a JobTracker, TaskTracker, NameNode, and DataNode. A slave or worker node acts as both a DataNode and TaskTracker.</p>
+
+<ul>
+<li> name node : metatable that records the physical location of each data block.</li>
+<li> secondary name node:contains the snapshot of name node, which is useful to restart name node.</li>
+<li> data node: store data.</li>
+<li> JobTracker: JobTracker governs the tasktracker. When there is an job request, job tracker talks with the namenode and find the location of data needed, then it assign task to takstracker.</li>
+<li> TaskTracker:Perform taks on data, report to jobtracker when task finished or failed. It also send heart beat to Jobtracker.
+
+<h4>MapReduce</h4>
+
+<p>(mapreduceimage.gif)</p></li>
+</ul>
+
+
+<p>MapReduce is an framework of distributed computing on HDFS. Map means perform job on multiple nodes, and recude means combine the result of each nodes that share the same key together.</p>
+
+<p>Taken the hello world of mapreduce, word count for example. If there is one text file contains 'Good morning' in node1, and one text file contains 'Good evenning' in node 2. The map process will perform word count in each file and get the map result at node1 {'Good':1,'morning':1} and result of node2 {'Good':1,'evening':1}.
+Then it combines(reduce) the same key and get final result {'Good':2,'morning':1,'evening':1}.</p>
+
+<p>For more detailed example of mapreduce, please see the apache <a href="http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html">mapreduce documentation</a>.</p>
+
+<h4>YARN</h4>
+
+<p>Another core component of Hadoop is Yarn. Yarn enable hadoop to excute not only batch oriented mapreduce work but also real time processing.</p>
+
+<h4>Other</h4>
+
+<ul>
+<li>pig:a dataflow language and environment for exploring very large datasets.</li>
+<li>hbase: a NoSQL (Not Only SQL) database on HDFS</li>
+<li>hive : SQL on Hadoop</li>
+<li>impala:Query Engine that enable user to perform SQL like Query on Hadoop</li>
+<li>spark: a system that incoporate with Hadoop. It has in memory database like Spark SQL , machine learning library like Mlib and Graph API like GraphX.</li>
+<li>storm: A distributed real time computation system.</li>
+</ul>
+
+
+<p>I will discuss how to configure a sudo distribued Hadoop cluster on your own computer in next blog.</p>
+
+<h3>Reference</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Apache_Hadoop">wikipedia_apache_hadoop</a></li>
+<li><a href="http://siliconangle.com/blog/2014/09/19/the-state-of-hadoop-2014-whos-using-it-and-why/">The State of Hadoop 2014: Who’s using it and why</a></li>
+</ul>
+
+</body>
+</html>

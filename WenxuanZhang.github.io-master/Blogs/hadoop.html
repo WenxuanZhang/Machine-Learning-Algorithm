@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wenxuan Zhang</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Visualization Class at Harvard University">
+  <link rel="canonical" href="http://wenxuanzhang.github.io/">
+  <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/2015 favicon.png">
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+</head>
+    <body>
+    <header class="site-header">
+     <div class="wrap">
+    <div class="logo"n><a class="site-title" href="/"><img src="/img/log2.svg" width="80"></a>
+    <div class="logoword">
+   <p class="site-words">unlocking the power of data<p>
+   </div>
+ </div>
+  
+  </div>
+    <div class="wrap">
+    <nav class="site-nav">
+     <div class="trigger">
+      <div class="wrap">
+       <a class="page-link" href="/2015/"></a>
+        <a class="page-link" href="/2015/feed.xml"></a>
+        <a class="page-link" href="/About">About</a>
+        <a class="page-link" href="/Skills">Skills</a>
+        <a class="page-link" href="/Blogs">Blogs</a>
+        <a class="page-link" href="/Portofolio">Portofolio</a>
+        <a class="page-link" href="/Resources">Resources</a>
+        <a class="page-link" href="/Contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</div>
+</header>
+<div class="page-content">
+<div class="wrap">
+<div class="post">
+<div class="wrap">
+<header class="post-header">
+ <h2 >Hadoop: a new trend for data storage and processing</h2>
+</header>
+</div>
+<article class="post-content">
+<div class="wrap">
+<div class="articleimg">
+<img src="/img/hadoopecosystem.png" width=100%>
+</div>
+
+</div>
+
+<div class='wrap'>
+
+<h3>Hadoop: what it is?</h3>
+
+<p>Apache Hadoop is an open source distributed data stroage and processing framework that inspired by the idead of Mapreduce and Google's file system.
+Hadoop is widely used among fortune 500 companies, its user include, Yahoo and facebook,Netflix and Amazon. According to <a href="http://www.computerworlduk.com/news/data/idc-hadoop-commonly-used-with-other-big-data-analytics-systems-3476789/">IDC' report</a>,32% percent of companies deployed Hadoop and a addition of 31 percent said they  had plans to deploy hadoop with 12 months. If you want to who are hadoop users and what they use hadoop to do please read <a href="http://wiki.apache.org/hadoop/PoweredBy">hadoop-wiki</a>.</p>
+<p></p>
+<p>Besides its original version apache hadoop, there are a number of companies tweaked and enhanced the functionalities of hadoop and developed their own version of hadoop on it. Three company that really stand out is Cloudera, MapR and Hortonworks.</p>
+<p></p>
+<p> Hadoop is composed of 4 modules：</p>
+
+<ul>
+<li>HDFS (Hadoop Distributed File System)</li>
+<li>MapReduce(a programming model for large scale data processing)</li>
+<li>YARN(a resource management that responsible for managing computing resources among clusters)</li>
+<li>Software on hadoop platform (pig, hive, spark)</li>
+</ul>
+<p></p>
+
+<h4>HDFS</h4>
+<div class="wrap">
+<div class="articleimg">
+<img src="/img/hdfsarchitecture.gif" width=100%>
+</div>
+</div>
+<p>
+HDFS (Hadoop distributed file system) breaks large data file into blocks and store these data files across multiple computers. Generally speaking, a hadoop cluster usually have one master node and multiple slave node. The master node consists of a JobTracker, TaskTracker, NameNode, and DataNode. A slave or worker node acts as both a DataNode and TaskTracker.</p>
+<p></p>
+
+<ul>
+<li> name node : metatable that records the physical location of each data block.</li>
+<li> secondary name node:contains the snapshot of name node, which is useful to restart name node.</li>
+<li> data node: store data.</li>
+<li> JobTracker: JobTracker governs the tasktracker. When there is an job request, job tracker talks with the namenode and find the location of data needed, then it assign task to takstracker.</li>
+<li> TaskTracker:Perform taks on data, report to jobtracker when task finished or failed. It also send heart beat to Jobtracker.
+
+<h4>MapReduce</h4>
+<div class="wrap">
+<div class="articleimg">
+<img src="/img/mapreduceimage.gif" width=100%>
+</div>
+</div>
+
+
+</li>
+</ul>
+
+
+<p>MapReduce is an framework of distributed computing on HDFS. Map means perform job on multiple nodes, and recude means combine the result of each nodes that share the same key together.</p>
+<p></p>
+<p>Taken the hello world of mapreduce, word count for example. If there is one text file contains 'Good morning' in node1, and one text file contains 'Good evenning' in node 2. The map process will perform word count in each file and get the map result at node1 {'Good':1,'morning':1} and result of node2 {'Good':1,'evening':1}.
+Then it combines(reduce) the same key and get final result {'Good':2,'morning':1,'evening':1}.</p>
+<p></p>
+<p>For more detailed example of mapreduce, please see the apache <a href="http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html">mapreduce documentation</a>.</p>
+<p></p>
+<h4>YARN</h4>
+
+<p>Another core component of Hadoop is Yarn. Yarn enable hadoop to excute not only batch oriented mapreduce work but also real time processing.</p>
+<p></p>
+<h4>Other</h4>
+
+<ul>
+<li>pig:a dataflow language and environment for exploring very large datasets.</li>
+<li>hbase: a NoSQL (Not Only SQL) database on HDFS</li>
+<li>hive : SQL on Hadoop</li>
+<li>impala:Query Engine that enable user to perform SQL like Query on Hadoop</li>
+<li>spark: a system that incoporate with Hadoop. It has in memory database like Spark SQL , machine learning library like Mlib and Graph API like GraphX.</li>
+<li>storm: A distributed real time computation system.</li>
+</ul>
+
+<p></p>
+<p>Btw,I will discuss how to configure a sudo distribued Hadoop cluster on your own computer in next blog.</p>
+
+<h3>Reference</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Apache_Hadoop">wikipedia_apache_hadoop</a></li>
+<li><a href="http://siliconangle.com/blog/2014/09/19/the-state-of-hadoop-2014-whos-using-it-and-why/">The State of Hadoop 2014: Who’s using it and why</a></li>
+</ul>
+</div>
+</article>
+</div>
+</div>
+<div class="previous">
+  <p><a href="/Blogs/Tableau_R1.html">Previous</a></p>
+</div>
+<div class="next">
+  <p><a href="">Next</a></p>
+</div>
+</div>
+
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-col-1 column" F> 
+    <p>© Wenxuan Zhang, 2015<p>
+    </div>
+    <div class="wrap">
+  <p><a href="https://www.linkedin.com/in/wenxuanzhang5"><img src="/img/linkedin.png" width="20" height="20"></a></p>
+  <p><a href="https://www.facebook.com/wenxuan.zhang.92"><img src="/img/facebook.png" width="20" height="20"></a></p>
+  <p><a href="https://github.com/WenxuanZhang"><img src="/img/github.png" width="20" height="20"></a></p>
+  <p><a href="https://twitter.com/ZhangWenxuan1"><img src="/img/twitter.jpeg" width="20" height="20"></a></p>
+  <p><a href="http://wenxuandatascientist.blogspot.com"><img src="/img/blog.png" width="20" height="20"></a></p>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-52275398-6', 'auto');
+  ga('send', 'pageview');
+</script><!-- End Google Analytics -->
+</body>
+
+
+
+</html>
